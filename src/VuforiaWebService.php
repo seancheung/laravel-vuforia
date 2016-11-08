@@ -2,9 +2,12 @@
 
 namespace Eyesar\Vuforia;
 
+use DateTime;
+use DateTimeZone;
 use Exception;
 use JsonSerializable;
 use HTTP_Request2;
+use HTTP_Request2_Exception;
 
 /**
 * Vuforia Cloud API Service
