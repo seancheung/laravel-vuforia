@@ -25,21 +25,35 @@ class VuforiaWebService
     *
     * @var string
     */
-    public $targets;
+    protected $targets;
 
     /**
     * VWS duplicates url
     *
     * @var string
     */
-    public $duplicates;
+    protected $duplicates;
 
     /**
     * VWS summary url
     *
     * @var string
     */
-    public $summary;
+    protected $summary;
+
+    /**
+    * VWS access key
+    *
+    * @var string
+    */
+    protected $accessKey;
+
+    /**
+    * VWS secret key
+    *
+    * @var string
+    */
+    protected $secretKey;
 
     /**
     * Create an instance
@@ -49,9 +63,11 @@ class VuforiaWebService
     */
     function __construct($config)
     {
-        $this->target = array_get($config, 'url.targets');
+        $this->targets = array_get($config, 'url.targets');
         $this->duplicates = array_get($config, 'url.duplicates');
         $this->summary = array_get($config, 'url.summary');
+        $this->accessKey = array_get($config, 'credentials.access_key');
+        $this->secretKey = array_get($config, 'credentials.secret_key');
     }
 
 
@@ -233,7 +249,7 @@ class VuforiaWebService
     
     private function makeRequest($url, $method = HTTP_Request2::METHOD_GET, $body = null, $headers = null) {
         
-        if(!env('VUFORIA_ACCESS_KEY') || !env('VUFORIA_SECRET_KEY')) {
+        if(empty($this->accessKey) || empty($this->secretKey)) {
             throw new Exception('Missing Vuforia Access/Secret Key(s)');
         }
         
@@ -257,7 +273,7 @@ class VuforiaWebService
 
         $signature = '';
         try {
-            $signature = $this->getSignature($request, env('VUFORIA_SECRET_KEY'));
+            $signature = $this->getSignature($request, $this->secretKey);
         }
         catch(Exception $e) {
             return [
@@ -266,7 +282,7 @@ class VuforiaWebService
             ];
         }
         
-        $request->setHeader("Authorization" , "VWS " . env('VUFORIA_ACCESS_KEY') . ":" . $signature);
+        $request->setHeader("Authorization" , "VWS " . $this->accessKey . ":" . $signature);
 
         try {
             $response = $request->send();

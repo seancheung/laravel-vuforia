@@ -18,8 +18,6 @@ class VuforiaWebServiceProvider extends ServiceProvider
         $this->app->singleton(VuforiaWebService::class, function ($app) {
             return new VuforiaWebService(config('vws'));
         });
-
-        $this->app->alias('VWS', VuforiaWebService::class);
     }
 
     /**
