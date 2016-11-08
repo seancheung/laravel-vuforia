@@ -2,6 +2,7 @@
     "name": "eyesar/laravel-vuforia",
     "description": "Vuforia web service api for laravel",
     "keywords": ["laravel", "vuforia", "ar", "augmented-reality", "api", "eyesar"],
+    "homepage": "https://github.com/Eyesar/laravel-vuforia",
     "license": "MIT",
     "authors": [
         {

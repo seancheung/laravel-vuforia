@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "90b93adbe659c9086538f5986070538c",
-    "content-hash": "3fe985c2f55ab9aefdb8eff527bd72f8",
+    "hash": "4116843f4db6b4623d595d4ca268dcb9",
+    "content-hash": "1f09c27f2b73ac8373a27f9c1e1a9333",
     "packages": [
         {
             "name": "doctrine/inflector",
-            "version": "dev-master",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "803a2ed9fea02f9ca47cd45395089fe78769a392"
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/doctrine/inflector/803a2ed9fea02f9ca47cd45395089fe78769a392.zip",
-                "reference": "803a2ed9fea02f9ca47cd45395089fe78769a392",
+                "url": "https://packagist.phpcomposer.com/files/doctrine/inflector/90b2128806bfde671b6952ab8bea493942c1fdae.zip",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
             "require": {
@@ -72,11 +72,11 @@
                 "singularize",
                 "string"
             ],
-            "time": "2016-05-12 17:23:41"
+            "time": "2015-11-06 14:35:42"
         },
         {
             "name": "illuminate/contracts",
-            "version": "5.3.x-dev",
+            "version": "v5.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -118,16 +118,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "5.3.x-dev",
+            "version": "v5.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "050d0ed3e1c0e1d129d73b2eaa14044e46a66f77"
+                "reference": "aa685c61c88a69b2e0e86310e65ef5ad2ebf2448"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/support/050d0ed3e1c0e1d129d73b2eaa14044e46a66f77.zip",
-                "reference": "050d0ed3e1c0e1d129d73b2eaa14044e46a66f77",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/support/aa685c61c88a69b2e0e86310e65ef5ad2ebf2448.zip",
+                "reference": "aa685c61c88a69b2e0e86310e65ef5ad2ebf2448",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2016-11-03 15:25:28"
+            "time": "2016-10-02 01:14:47"
         },
         {
             "name": "paragonie/random_compat",
@@ -282,7 +282,7 @@
         },
         {
             "name": "pear/net_url2",
-            "version": "dev-master",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/Net_URL2.git",
@@ -343,7 +343,7 @@
         },
         {
             "name": "pear/pear_exception",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/PEAR_Exception.git",
@@ -399,7 +399,7 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
