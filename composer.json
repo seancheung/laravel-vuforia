@@ -1,0 +1,23 @@
+{
+    "name": "eyesar/laravel-vuforia",
+    "description": "Vuforia web service api for laravel",
+    "keywords": ["laravel", "vuforia", "ar", "augmented-reality", "api", "eyesar"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sean Cheung",
+            "email": "theoxuanx@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6.4", 
+        "illuminate/support": "5.3.*",
+        "pear/http_request2": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eyesar\\Vuforia\\": "src/"
+        }
+    }
+}
