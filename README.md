@@ -27,7 +27,7 @@ Optionally, you may register an alias:
 // config/app.php
 'aliases' => [
     ...
-    'VWS' => Eyesar\Vuforia\VuforiaWebService::class,
+    'VWS' => Eyesar\Vuforia\Facades\VuforiaWebService::class,
 ];
 ```
 

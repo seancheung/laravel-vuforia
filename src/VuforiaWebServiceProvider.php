@@ -16,7 +16,7 @@ class VuforiaWebServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/vws.php', 'vws');
 
         $this->app->singleton(VuforiaWebService::class, function ($app) {
-            return new VuforiaWebService(config('vws'));
+            return VuforiaWebService::create(config('vws'));
         });
     }
 

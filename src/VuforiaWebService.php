@@ -73,6 +73,17 @@ class VuforiaWebService
         $this->secretKey = array_get($config, 'credentials.secret_key');
     }
 
+    /**
+    * Create an instance
+    *
+    * @param array $config
+    * @return Eyesar\Vuforia\VuforiaWebService
+    */
+    static function create($config)
+    {
+        return new VuforiaWebService($config);
+    }
+
 
     /**
     * Get all targets
