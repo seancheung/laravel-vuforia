@@ -30,7 +30,7 @@ return [
 
         /*
         |--------------------------------------------------------------
-        | Vuforia Web Service Duplicates Request URL
+        | Vuforia Web Service Summary Request URL
         |--------------------------------------------------------------
         |
         |
@@ -40,13 +40,28 @@ return [
 
     /*
     |--------------------------------------------------------------
-    | Vuforia cloud database access key and secret key
+    | Vuforia cloud database credentials
     |--------------------------------------------------------------
     |
     |
     */
     'credentials' => [
+        /*
+        |--------------------------------------------------------------
+        | Vuforia cloud database access key
+        |--------------------------------------------------------------
+        |
+        |
+        */
         "access_key" => env('VUFORIA_ACCESS_KEY'),
+
+        /*
+        |--------------------------------------------------------------
+        | Vuforia cloud database secret key
+        |--------------------------------------------------------------
+        |
+        |
+        */
         "secret_key" => env('VUFORIA_SECRET_KEY'),
     ]
 ];
