@@ -135,7 +135,7 @@ $target->active = false;
 
     /*
     |--------------------------------------------------------------
-    | Max image size(unencoded) in Bit. Default is 2MB
+    | Max image size(unencoded) in Byte. Default is 2MB
     | Set to null to bypass size checking(not recommended)
     |--------------------------------------------------------------
     |
@@ -145,7 +145,7 @@ $target->active = false;
 
     /*
     |--------------------------------------------------------------
-    | Max metadata size(unencoded) in Bit. Default is 2MB
+    | Max metadata size(unencoded) in Byte. Default is 2MB
     | Set to null to bypass size checking(not recommended)
     |--------------------------------------------------------------
     |
