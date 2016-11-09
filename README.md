@@ -167,7 +167,7 @@ $target->active = false;
 ]
 ```
 
-### Jobs and Notification(optional)
+### Jobs and Notification
 ```php
 /**
 * Upload image to Vuforia
