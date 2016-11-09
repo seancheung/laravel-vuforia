@@ -29,6 +29,14 @@ class VuforiaWebServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/vws.php' => config_path('vws.php')
-        ]);
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/VuforiaJob.stub' => app_path('Jobs/VuforiaJob.php')
+        ], 'jobs');
+
+        $this->publishes([
+            __DIR__.'/jobs/VuforiaNotification.stub' => app_path('Notifications/VuforiaNotification.php')
+        ], 'notifications');
     }
 }

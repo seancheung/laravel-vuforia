@@ -59,6 +59,27 @@ class VuforiaWebService
     protected $secretKey;
 
     /**
+    * Image naming regex pattern
+    *
+    * @var string
+    */
+    protected $namingRule;
+
+    /**
+    * Max image size in Bit
+    *
+    * @var float
+    */
+    protected $maxImageSize;
+
+    /**
+    * Max metadata size in Bit
+    *
+    * @var float
+    */
+    protected $maxMetaSize;
+
+    /**
     * Create an instance
     *
     * @param array $config
@@ -71,6 +92,9 @@ class VuforiaWebService
         $this->summary = array_get($config, 'url.summary');
         $this->accessKey = array_get($config, 'credentials.access_key');
         $this->secretKey = array_get($config, 'credentials.secret_key');
+        $this->namingRule = array_get($config, 'naming_rule');
+        $this->maxImageSize = array_get($config, 'max_image_size');
+        $this->maxMetaSize = array_get($config, 'max_meta_size');
     }
 
     /**
@@ -134,8 +158,8 @@ class VuforiaWebService
         }
 
         if(!empty($target->name)) {
-            if(!preg_match('/^[\w\-]+$/', $target->name)) {
-                throw new Exception("Target name must have no spaces and may only contain: numbers (0-9), letters (a-z), underscores ( _ ) and dashes ( - )"); 
+            if(!empty($this->namingRule) && !preg_match($this->namingRule, $target->name)) {
+                throw new Exception("Invalid naming"); 
             }
         }
 
@@ -143,6 +167,14 @@ class VuforiaWebService
             if($target->width <= 0) {
                 throw new Exception("Target width should be a number");  
             }
+        }
+
+        if(!empty($target->image) && !empty($this->maxImageSize) && strlen($target->image) > $this->maxImageSize) {
+            throw new Exception("Image is too large"); 
+        }
+
+        if(!empty($target->metadata) && !empty($this->maxMetaSize) && strlen($target->metadata) > $this->maxMetaSize) {
+            throw new Exception("Metadata is too large"); 
         }
 
         return $this->makeRequest(
@@ -175,8 +207,8 @@ class VuforiaWebService
             throw new Exception("Target name is required");  
         }
 
-        if(!preg_match('/^[\w\-]+$/', $target->name)) {
-            throw new Exception("Target name must have no spaces and may only contain: numbers (0-9), letters (a-z), underscores ( _ ) and dashes ( - )"); 
+        if(!empty($this->namingRule) && !preg_match($this->namingRule, $target->name)) {
+            throw new Exception("Invalid naming"); 
         }
 
         if(empty($target->width)) {
@@ -189,6 +221,14 @@ class VuforiaWebService
 
         if(empty($target->image)) {
             throw new Exception("Target image is required");  
+        }
+
+        if(!empty($this->maxImageSize) && strlen($target->image) > $this->maxImageSize) {
+            throw new Exception("Image is too large"); 
+        }
+
+        if(!empty($target->metadata) && !empty($this->maxMetaSize) && strlen($target->metadata) > $this->maxMetaSize) {
+            throw new Exception("Metadata is too large"); 
         }
 
         return $this->makeRequest($this->targets,
@@ -433,12 +473,13 @@ class Target implements JsonSerializable
                 $this->image = $attributes['image'];
             }
             else if(array_key_exists('path', $attributes)) {
-                try {
+                try 
+                {
                     $this->image = file_get_contents($attributes['path']);
                 }
                 catch(Exception $e)
                 {
-                    throw new Exception("Failed to read image from " . $attributes['path']);                    
+                    throw new Exception("Failed to read image from " . $attributes['path'] . ': ' . $e->getMessage());                    
                 }
             }
 
