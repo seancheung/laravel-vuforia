@@ -105,6 +105,5 @@ VUFORIA_SECRET_KEY=
 ...
 ```
 
-## RESETfull API Reference
-
-See [RESET-API](reset-api.md)
+## Documentation
+See [Wiki](https://github.com/Eyesar/laravel-vuforia/wiki)
