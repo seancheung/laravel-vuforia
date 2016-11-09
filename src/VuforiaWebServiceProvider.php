@@ -36,7 +36,7 @@ class VuforiaWebServiceProvider extends ServiceProvider
         ], 'jobs');
 
         $this->publishes([
-            __DIR__.'/jobs/VuforiaNotification.stub' => app_path('Notifications/VuforiaNotification.php')
+            __DIR__.'/VuforiaNotification.stub' => app_path('Notifications/VuforiaNotification.php')
         ], 'notifications');
     }
 }
