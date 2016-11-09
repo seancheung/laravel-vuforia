@@ -67,5 +67,176 @@ $target->active = false;
 ]  
 ```
 
+### Configurable
+```php
+[
+    /*
+    |--------------------------------------------------------------
+    | Vuforia Web Service URLs
+    |--------------------------------------------------------------
+    |
+    |
+    */
+    'url' => [
+        /*
+        |--------------------------------------------------------------
+        | Vuforia Web Service Targets Request URL
+        |--------------------------------------------------------------
+        |
+        |
+        */
+        'targets' => 'https://vws.vuforia.com/targets',
+
+        /*
+        |--------------------------------------------------------------
+        | Vuforia Web Service Duplicates Request URL
+        |--------------------------------------------------------------
+        |
+        |
+        */
+        'duplicates' => 'https://vws.vuforia.com/duplicates',
+
+        /*
+        |--------------------------------------------------------------
+        | Vuforia Web Service Summary Request URL
+        |--------------------------------------------------------------
+        |
+        |
+        */
+        'summary' => 'https://vws.vuforia.com/summary',
+        ],
+
+    /*
+    |--------------------------------------------------------------
+    | Vuforia cloud database credentials
+    |--------------------------------------------------------------
+    |
+    |
+    */
+    'credentials' => [
+        /*
+        |--------------------------------------------------------------
+        | Vuforia cloud database access key
+        |--------------------------------------------------------------
+        |
+        |
+        */
+        "access_key" => env('VUFORIA_ACCESS_KEY'),
+
+        /*
+        |--------------------------------------------------------------
+        | Vuforia cloud database secret key
+        |--------------------------------------------------------------
+        |
+        |
+        */
+        "secret_key" => env('VUFORIA_SECRET_KEY'),
+    ],
+
+    /*
+    |--------------------------------------------------------------
+    | Max image size(unencoded) in Bit. Default is 2MB
+    | Set to null to bypass size checking(not recommended)
+    |--------------------------------------------------------------
+    |
+    |
+    */
+    'max_image_size' => 2097152,
+
+    /*
+    |--------------------------------------------------------------
+    | Max metadata size(unencoded) in Bit. Default is 2MB
+    | Set to null to bypass size checking(not recommended)
+    |--------------------------------------------------------------
+    |
+    |
+    */
+    'max_meta_size' => 2097152,
+
+    /*
+    |--------------------------------------------------------------
+    | Name checking rule. Default is 
+    | no spaces and may only contain: 
+    | numbers (0-9), letters (a-z), underscores ( _ ) and dashes ( - )
+    | Set to null to bypass name checking(not recommended)
+    |--------------------------------------------------------------
+    |
+    |
+    */
+    'naming_rule' => '/^[\w\-]+$/'
+]
+```
+
+### Jobs and Notification(optional)
+```php
+/**
+* Upload image to Vuforia
+*/
+abstract class VuforiaJob implements ShouldQueue
+{
+    use InteractsWithQueue, Queueable, SerializesModels;
+    
+    /**
+    * Execute the job.
+    *
+    * @param  VuforiaWebService  $vws
+    * @return void
+    */
+    abstract function handle(VuforiaWebService $vws);
+    
+    /**
+    * The job failed to process.
+    *
+    * @param  Exception  $exception
+    * @return void
+    */
+    abstract function failed(Exception $exception);
+}
+```
+```php
+abstract class VuforiaNotification extends Notification
+{
+    use Queueable;
+
+    protected $result;
+
+    /**
+     * Create a new notification instance.
+     *
+     * @param mixed $result
+     *
+     * @return void
+     */
+    public function __construct($result)
+    {
+        $this->result = $result;
+    }
+
+    /**
+     * Get the notification's delivery channels.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        return ['database'];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray($notifiable)
+    {
+        return [
+            'result' => $this->result
+        ];
+    }
+}
+```
+
 ## Documentation
 See [Wiki](https://github.com/Eyesar/laravel-vuforia/wiki)
