@@ -1,6 +1,6 @@
 <?php
 
-namespace Panaroma\Vuforia\Facades;
+namespace Panoscape\Vuforia\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -13,6 +13,6 @@ class VuforiaWebService extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \Panaroma\Vuforia\VuforiaWebService::class;
+        return \Panoscape\Vuforia\VuforiaWebService::class;
     }
 }
