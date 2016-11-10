@@ -1,6 +1,6 @@
 <?php
 
-namespace Eyesar\Vuforia\Notifications;
+namespace Panaroma\Vuforia\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
