@@ -1,6 +1,12 @@
 # Laravel-Vuforia
 Vuforia web service API for Laravel
 
+## Install
+
+```shell
+composer require panoscape/laravel-vuforia
+```
+
 ## Features
 
 ### Easy with Facade:
