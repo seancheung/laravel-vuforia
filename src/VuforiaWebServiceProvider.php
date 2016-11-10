@@ -1,6 +1,6 @@
 <?php
 
-namespace Eyesar\Vuforia;
+namespace Panaroma\Vuforia;
 
 use Illuminate\Support\ServiceProvider;
 
