@@ -1,5 +1,5 @@
 {
-    "name": "panaroma/laravel-vuforia",
+    "name": "panoscape/laravel-vuforia",
     "description": "Vuforia web service api for laravel",
     "keywords": ["laravel", "vuforia", "ar", "augmented-reality", "api"],
     "homepage": "https://github.com/seancheung/laravel-vuforia",
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Panaroma\\Vuforia\\": "src/"
+            "Panoscape\\Vuforia\\": "src/"
         }
     }
 }
