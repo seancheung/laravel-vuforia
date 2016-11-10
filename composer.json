@@ -1,8 +1,8 @@
 {
-    "name": "eyesar/laravel-vuforia",
+    "name": "panaroma/laravel-vuforia",
     "description": "Vuforia web service api for laravel",
-    "keywords": ["laravel", "vuforia", "ar", "augmented-reality", "api", "eyesar"],
-    "homepage": "https://github.com/Eyesar/laravel-vuforia",
+    "keywords": ["laravel", "vuforia", "ar", "augmented-reality", "api"],
+    "homepage": "https://github.com/seancheung/laravel-vuforia",
     "license": "MIT",
     "authors": [
         {
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Eyesar\\Vuforia\\": "src/"
+            "Panaroma\\Vuforia\\": "src/"
         }
     }
 }
