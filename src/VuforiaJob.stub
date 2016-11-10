@@ -1,6 +1,6 @@
 <?php
 
-namespace Panaroma\Vuforia\Jobs;
+namespace Panoscape\Vuforia\Jobs;
 
 use Exception;
 use Illuminate\Bus\Queueable;
