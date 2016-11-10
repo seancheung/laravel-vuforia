@@ -1,6 +1,6 @@
 <?php
 
-namespace Panaroma\Vuforia;
+namespace Panoscape\Vuforia;
 
 use Illuminate\Support\ServiceProvider;
 
