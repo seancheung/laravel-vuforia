@@ -1,10 +1,10 @@
 <?php
 
-namespace Eyesar\Vuforia\Jobs;
+namespace Panaroma\Vuforia\Jobs;
 
 use Exception;
 use Illuminate\Bus\Queueable;
-use Eyesar\Vuforia\VuforiaWebService;
+use Panaroma\Vuforia\VuforiaWebService;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
