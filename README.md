@@ -7,6 +7,27 @@ Vuforia web service API for Laravel
 composer require panoscape/laravel-vuforia
 ```
 
+Service provider
+
+> config/app.php
+
+```php
+'providers' => [
+    ...
+    Panoscape\Vuforia\VuforiaWebServiceProvider::class,
+];
+```
+
+Facades
+
+> config/app.php
+
+```php
+'aliases' => [
+    ...
+    'VWS' => Panoscape\Vuforia\Facades\VuforiaWebService::class,
+];
+
 ## Features
 
 ### Easy with Facade:
