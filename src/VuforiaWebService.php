@@ -163,17 +163,17 @@ class VuforiaWebService
             }
         }
 
-        if(!empty($target->width)) {
+        if(is_numeric($target->width)) {
             if($target->width <= 0) {
                 throw new Exception("Target width should be a number");  
             }
         }
 
-        if(!empty($target->image) && !empty($this->maxImageSize) && strlen($target->image) > $this->maxImageSize) {
+        if(!empty($target->image) && is_numeric($this->maxImageSize) && strlen($target->image) > $this->maxImageSize) {
             throw new Exception("Image is too large"); 
         }
 
-        if(!empty($target->metadata) && !empty($this->maxMetaSize) && strlen($target->metadata) > $this->maxMetaSize) {
+        if(!empty($target->metadata) && is_numeric($this->maxMetaSize) && strlen($target->metadata) > $this->maxMetaSize) {
             throw new Exception("Metadata is too large"); 
         }
 
@@ -211,7 +211,7 @@ class VuforiaWebService
             throw new Exception("Invalid naming"); 
         }
 
-        if(empty($target->width)) {
+        if(!is_numeric($target->width)) {
             throw new Exception("Target width is required");  
         }
 
@@ -223,11 +223,11 @@ class VuforiaWebService
             throw new Exception("Target image is required");  
         }
 
-        if(!empty($this->maxImageSize) && strlen($target->image) > $this->maxImageSize) {
+        if(is_numeric($this->maxImageSize) && strlen($target->image) > $this->maxImageSize) {
             throw new Exception("Image is too large"); 
         }
 
-        if(!empty($target->metadata) && !empty($this->maxMetaSize) && strlen($target->metadata) > $this->maxMetaSize) {
+        if(!empty($target->metadata) && is_numeric($this->maxMetaSize) && strlen($target->metadata) > $this->maxMetaSize) {
             throw new Exception("Metadata is too large"); 
         }
 
@@ -501,7 +501,7 @@ class Target implements JsonSerializable
             $array['name'] = $this->name;
         }
 
-        if(!empty($this->width)) {
+        if(is_numeric($this->width)) {
             $array['width'] = $this->width;
         }
 
@@ -509,7 +509,7 @@ class Target implements JsonSerializable
             $array['image'] = base64_encode($this->image);
         }
         
-        if(!empty($this->active)) {
+        if(is_bool($this->active)) {
             $array['active_flag'] = $this->active ? 1 : 0;
         }
         
