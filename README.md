@@ -27,6 +27,7 @@ Facades
     ...
     'VWS' => Panoscape\Vuforia\Facades\VuforiaWebService::class,
 ];
+```
 
 ## Features
 
